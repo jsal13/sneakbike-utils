@@ -50,10 +50,13 @@ resource "aws_security_group" "sg_allow_rtmp" {
   }
 }
 
+# Old instances: 
+#   ami             = "ami-0bcc094591f354be2"
+#   instance_type   = "t3a.micro"
 resource "aws_instance" "sneakbike_instance" {
   key_name        = aws_key_pair.sneakbike_key_pair.key_name
-  ami             = "ami-0bcc094591f354be2"
-  instance_type   = "t3a.micro"
+  ami             = "ami-04c7777d0979422a2"
+  instance_type   = "t4g.micro"
   security_groups = [aws_security_group.sg_allow_rtmp.name]
 
   connection {
